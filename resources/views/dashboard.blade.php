@@ -5,6 +5,9 @@
 </head>
 <body>
     <h1>Welcome to the Dashboard</h1>
+    <?php
+//echo session()->put('u');
+?>
     <p1>berhasil login</p1>
     <button><a href="/logout">Logout</a></button>
  
