@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -30,22 +30,20 @@ class RegisterController extends Controller
 
     public function Aksilogin(Request $request)
     {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-        $user = $request->input('username');
-        $password = $request->input('password');
+     
+        echo $username = $request->input('u');
+        echo $password = $request->input('zano');
 
         $user = User::findByUsername($username);
+    
 
-        if($user && Hash ::check($password, $user->password)) {
+        if($password === $user->password ) {
            $request->session()->put('user_id', $user->id);
-            $request->session()->put('u', $user->username);
+            $request->session()->put('u', $user->name);
 
             return redirect('/home');
         } else {
-            return redirect('/login')->with('error', 'Invalid username or password');
+           return redirect('/')->with('error', 'Invalid username or password');
 
     }
 }

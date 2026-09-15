@@ -43,7 +43,11 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
         ];
+    }
+
+    public static function findByUsername($username)
+    {
+        return self::where('name', $username)->first();
     }
 }

@@ -17,14 +17,14 @@ class logincontroller extends Controller
      $USERNAME  = $Request->input('u');
         $zelly= $Request->input('zano');
         $where = array(
-            'username' => $USERNAME,
+            'name' => $USERNAME,
             'password' => $zelly
         );
         $zellyjacq=$model->jackianlina('users', $where);
         if($zellyjacq && $zellyjacq->username==$USERNAME && $zellyjacq->password==$zelly){
-            return redirect('/home');
+           // return redirect('/home');
         }else{user()->flash('error', 'Invalid username or password');
-            return redirect('/');
+            //return redirect('/');
         }
     }
 }

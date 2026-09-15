@@ -4,8 +4,8 @@ use App\Http\Controllers\logincontroller;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/register', [App\Http\Controllers\registercontroller::class, 'index']);
-Route::post('/register', [App\Http\Controllers\registercontroller::class, 'RegisterAction']);
+//Route::get('/register', [App\Http\Controllers\registercontroller::class, 'index']);
+//Route::post('/register', [App\Http\Controllers\registercontroller::class, 'RegisterAction']);
 
-Route::get('/login', [App\Http\Controllers\registercontroller::class, 'login']);
+Route::get('/', [App\Http\Controllers\registercontroller::class, 'login']);
 Route::post('/login', [App\Http\Controllers\registercontroller::class, 'AksiLogin']);
