@@ -9,6 +9,6 @@ class Databases extends Model
 {
     public function pull($Iyan, $Jo)
     {
-        return DB::table($Iyan)->where($Jo)->first;
+        return DB::table($Iyan)->where($Jo)->first();
     }
 }

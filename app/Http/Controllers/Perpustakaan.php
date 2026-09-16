@@ -21,11 +21,12 @@ class Perpustakaan extends Controller
 
         $Kelvin=new Databases;
 
-        $Carlin=$Kelvin->pull('user','$condition');
+        $Carlin=$Kelvin->pull('user',$condition);
         print_r($condition);
-        if ($Carlin);
+        if ($Carlin){
             session(['u'=>$Carlin->username]);
             return redirect()->intended('/dashboard');
+        }
 
         else{
             return redirect()->intended('/');
