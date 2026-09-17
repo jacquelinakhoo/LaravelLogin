@@ -13,18 +13,17 @@ class Perpustakaan extends Controller
     }
 
     public function login(Request $request){
-        $username = $request->input('u');
+        $name = $request->input('u');
         $password = $request->input('zano');
 
-        $condition = array ('username' => $username, 
+        $condition = array ('name' => $name, 
                             'password' => $password);
 
         $Kelvin=new Databases;
 
-        $Carlin=$Kelvin->pull('user',$condition);
-        print_r($condition);
+        $Carlin=$Kelvin->pull('users',$condition);
         if ($Carlin){
-            session(['u'=>$Carlin->username]);
+            session(['u'=>$Carlin->name]);
             return redirect()->intended('/dashboard');
         }
 
@@ -36,8 +35,16 @@ class Perpustakaan extends Controller
     }
 public function dashboard(){
 {
-    echo "selamat datang ";
-    echo session('u');
+   if (session('u')>0){
+        return view('dashboard');
+    }
+    else{
+        return redirect()->intended('/');
+    }
 }
 }
+    public function logout(){
+        session()->flush();
+        return redirect()->intended('/');
+    }
 };

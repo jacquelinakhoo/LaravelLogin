@@ -9,7 +9,7 @@
     <h2>LOGIN</h2>
     <form method="POST" action="login">
         @csrf
-        <label for="username">username:</label>
+        <label for="name">username:</label>
         <input type="text" name="u" required><br>
 
         <label for="password">Password:</label>
