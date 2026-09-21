@@ -4,8 +4,17 @@ use App\Http\Controllers\logincontroller;
 
 use Illuminate\Support\Facades\Route;
 
+//login
 Route::get('/', 'App\Http\Controllers\Perpustakaan@index');
 Route::post('/login', 'App\Http\Controllers\Perpustakaan@login');
+
+//dashboard
 Route::get('/dashboard', 'App\Http\Controllers\Perpustakaan@dashboard');
-Route::get('/dashboard', 'App\Http\Controllers\Perpustakaan@dashboard');
+
+//logout
 Route::get('/logout', 'App\Http\Controllers\Perpustakaan@logout');
+
+//signup
+Route::get('/signup', 'App\Http\Controllers\Perpustakaan@signup');
+Route::post('/signup', 'App\Http\Controllers\Perpustakaan@form');
+

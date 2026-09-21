@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class Perpustakaan extends Controller
 {
+    //FOR LOGIN
     public function index()
     {
         return view('login');
@@ -33,6 +34,8 @@ class Perpustakaan extends Controller
 
 
     }
+
+    //FOR DASHBOARD
 public function dashboard(){
 {
    if (session('u')>0){
@@ -47,4 +50,19 @@ public function dashboard(){
         session()->flush();
         return redirect()->intended('/');
     }
+
+    //FOR SIGNUP
+
+public function signup(){
+        return view('signup');
+    }
+
+public function form(Request $request){
+    $request->validate([
+        'u'=>'required',
+        'e'=>'required',
+        'p'=>'required'
+    ]);
+
+}
 };
