@@ -8,16 +8,16 @@ use Illuminate\Http\Request;
 class Perpustakaan extends Controller
 {
     //FOR LOGIN
-    public function index()
+    public function index()  //the most default, i alrd understand
     {
         return view('login');
     }
 
-    public function login(Request $request){
-        $name = $request->input('u');
-        $password = $request->input('zano');
+    public function login(Request $request){  //request function? $request can be anything
+        $name = $request->input('u');  //$name and $password can be anything we want right? or does it has to match users table? but yeah so this line is saying $name takes from the view input of 'u'?
+        $password = $request->input('zano');  //same as above
 
-        $condition = array ('name' => $name, 
+        $condition = array ('name' => $name,    //oh i think this is the one that has to match users table 'name' and 'password' has to match and its telling the system that $name also counts as/is the same as the name column in users table
                             'password' => $password);
 
         $Kelvin=new Databases;
@@ -39,13 +39,17 @@ class Perpustakaan extends Controller
 public function dashboard(){
 {
    if (session('u')>0){
-        return view('dashboard');
+        $Kelvin= New Databases;
+        $Septi['Sepno']=$Kelvin->tampil('users');
+         return view('dashboard', $Septi);
     }
     else{
         return redirect()->intended('/');
     }
+    
 }
 }
+
     public function logout(){
         session()->flush();
         return redirect()->intended('/');
@@ -53,8 +57,8 @@ public function dashboard(){
 
     //FOR SIGNUP
 
-public function signup(){
-        return view('signup');
+public function register(){
+        return view('register');
     }
 
 public function form(Request $request){

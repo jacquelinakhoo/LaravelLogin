@@ -9,14 +9,18 @@
     <h2>LOGIN</h2>
     <form method="POST" action="login">
         @csrf
-        <label for="name">username:</label>
+        <label for="name">Username:</label>
         <input type="text" name="u" required><br>
 
         <label for="password">Password:</label>
         <input type="password" name="zano"  required><br>
 
-
         <button type="submit">Login</button>
     </form>
+
+    <p>
+    No account? <a href='/register'>Register<a>
+</p> 
+
 </body>
 </html>

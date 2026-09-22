@@ -15,6 +15,6 @@ Route::get('/dashboard', 'App\Http\Controllers\Perpustakaan@dashboard');
 Route::get('/logout', 'App\Http\Controllers\Perpustakaan@logout');
 
 //signup
-Route::get('/signup', 'App\Http\Controllers\Perpustakaan@signup');
-Route::post('/signup', 'App\Http\Controllers\Perpustakaan@form');
+Route::get('/register', 'App\Http\Controllers\Perpustakaan@register');
+Route::post('/register', 'App\Http\Controllers\Perpustakaan@form');
 

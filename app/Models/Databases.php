@@ -11,4 +11,10 @@ class Databases extends Model
     {
         return DB::table($Iyan)->where($Jo)->first();
     }
+
+    public function tampil($table)
+    {
+        return DB::table($table)
+        ->get();
+    }
 }
